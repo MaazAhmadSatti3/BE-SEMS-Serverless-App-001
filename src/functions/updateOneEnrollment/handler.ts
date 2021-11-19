@@ -10,7 +10,7 @@ const updateEnrollmentH: ValidatedEventAPIGatewayProxyEvent<typeof schema> =
   async (event) => {
     const data = event.body;
     const { id } = event.pathParameters;
-
+    // validation on basis of courseid and studentid
     const validation = {
       TableName: "SEMSCRUD",
       FilterExpression: "#courseid = :courseid AND #studentid = :studentid",
@@ -31,6 +31,7 @@ const updateEnrollmentH: ValidatedEventAPIGatewayProxyEvent<typeof schema> =
         message: "Enrollment already exist",
       });
     } else {
+      // query to update enrollment
       const query = {
         TableName: "SEMSCRUD",
         Key: {

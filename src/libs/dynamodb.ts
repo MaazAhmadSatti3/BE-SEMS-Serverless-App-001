@@ -1,5 +1,6 @@
 import * as AWS from "aws-sdk";
 
+// Dynamodb configuration for online and offline
 const dynamoClient = process.env.IS_OFFLINE
   ? new AWS.DynamoDB.DocumentClient({
       region: "localhost",

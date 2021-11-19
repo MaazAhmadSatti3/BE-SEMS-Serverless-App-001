@@ -5,6 +5,7 @@ import { Handler } from "aws-lambda";
 
 const deleteEnrollmentH: Handler = async (event) => {
   const { id } = event.pathParameters;
+  // query to delete enrollment
   const query = {
     TableName: "SEMSCRUD",
     Key: {

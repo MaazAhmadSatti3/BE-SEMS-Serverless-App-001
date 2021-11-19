@@ -4,6 +4,7 @@ import { middyfy } from "@libs/lambda";
 import { Handler } from "aws-lambda";
 
 const getListOfStudents: Handler = async (event) => {
+  // query to get list of students
   let query = {
     TableName: "SEMSCRUD",
     ProjectionExpression: "#name, email, age, dob",

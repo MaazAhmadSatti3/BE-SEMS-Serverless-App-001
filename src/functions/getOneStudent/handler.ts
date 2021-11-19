@@ -5,6 +5,7 @@ import { Handler } from "aws-lambda";
 
 const getStudentH: Handler = async (event) => {
   const { id } = event.pathParameters;
+  // query to get one student
   const query = {
     TableName: "SEMSCRUD",
     Key: {

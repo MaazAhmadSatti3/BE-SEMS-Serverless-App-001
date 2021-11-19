@@ -10,6 +10,7 @@ const updateStudentH: ValidatedEventAPIGatewayProxyEvent<typeof schema> =
   async (event) => {
     const data = event.body;
     const { id } = event.pathParameters;
+    // validation on basis of email
     const validation = {
       TableName: "SEMSCRUD",
       FilterExpression: "#email = :email",
@@ -28,6 +29,7 @@ const updateStudentH: ValidatedEventAPIGatewayProxyEvent<typeof schema> =
         message: "Student already exist",
       });
     } else {
+      // query to update student
       const query = {
         TableName: "SEMSCRUD",
         Key: {

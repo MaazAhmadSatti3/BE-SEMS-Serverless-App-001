@@ -11,7 +11,7 @@ const updateCourseH: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (
 ) => {
   const data = event.body;
   const { id } = event.pathParameters;
-
+// validation on basis of course code
   const validation = {
     TableName: "SEMSCRUD",
     FilterExpression: "#coursecode = :coursecode",
@@ -30,6 +30,7 @@ const updateCourseH: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (
       message: "Course already exist",
     });
   } else {
+    // query to update course
     const query = {
       TableName: "SEMSCRUD",
       Key: {
